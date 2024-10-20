@@ -11,9 +11,9 @@
 class Solution {
 public:
     ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
-		// Solution 1
+		// Solution 2 
 		// Runtime: 0ms, 100%
-		// Memory: 20.01MB, 10.63% 
+		// Memory: 19.80MB, 55.72% 
         ListNode* head;
 		ListNode* merged_list;
 
@@ -23,12 +23,12 @@ public:
 
         if (list1->val < list2->val)
         {
-			merged_list = new ListNode(list1->val);
+			merged_list = list1;
 			list1 = list1->next;
         }
 		else 
 		{
-			merged_list = new ListNode(list2->val);
+			merged_list = list2;
 			list2 = list2->next;
 		}
 		head = merged_list;
@@ -37,15 +37,17 @@ public:
 		{
 			if (list1->val < list2->val)
 			{
-				merged_list->next = new ListNode(list1->val);
-				merged_list = merged_list->next;
+				merged_list->next = list1;
 				list1 = list1->next;
+				merged_list = merged_list->next;
+				merged_list->next = nullptr;
 			}						
 			else
 			{
-				merged_list->next = new ListNode(list2->val);
-				merged_list = merged_list->next;
+				merged_list->next = list2;
 				list2 = list2->next;
+				merged_list = merged_list->next;
+				merged_list->next = nullptr;
 			}						
 		}
 
@@ -53,18 +55,20 @@ public:
 		{
 			while (list1)
 			{
-				merged_list->next = new ListNode(list1->val);
-				merged_list = merged_list->next;
+				merged_list->next = list1;
 				list1 = list1->next;
+				merged_list = merged_list->next;
+				merged_list->next = nullptr;
 			}
 		}
 		else
 		{
 			while (list2)
 			{
-				merged_list->next = new ListNode(list2->val);
-				merged_list = merged_list->next;
+				merged_list->next = list2;
 				list2 = list2->next;
+				merged_list = merged_list->next;
+				merged_list->next = nullptr;
 			}
 		}
 
