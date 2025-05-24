@@ -1,3 +1,8 @@
+// Solution 2 
+// Runtime: 0ms, 100%
+// Memory: 19.80MB, 55.72% 
+// https://leetcode.com/problems/merge-two-sorted-lists/description/
+
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -11,9 +16,6 @@
 class Solution {
 public:
     ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
-		// Solution 2 
-		// Runtime: 0ms, 100%
-		// Memory: 19.80MB, 55.72% 
         ListNode* head;
 		ListNode* merged_list;
 
